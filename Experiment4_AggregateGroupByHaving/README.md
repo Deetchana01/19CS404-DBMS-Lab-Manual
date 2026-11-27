@@ -36,158 +36,158 @@ GROUP BY column_name
 HAVING condition;
 ```
 
-## Question 1:
+**Question 1**
+--
+![{C4EAD905-5F81-49D6-BEAD-08963A5DB43E}](https://github.com/user-attachments/assets/f7cf2b25-37df-47ed-990a-88a959aad7bc)
 
-Find the minimum salary of all staff members.
-
-```
-SELECT MIN(salary) AS minimum_salary
-FROM staff;
-
-```
-
-## Output:
-
-<img width="877" height="367" alt="image" src="https://github.com/user-attachments/assets/81e61a6e-840b-4718-8877-9912ede1288a" />
-
-
-## Question 2:
-
-Find the maximum salary of all staff members.
-
-```
-SELECT MAX(salary) AS maximum_salary
-FROM staff;
-
+```sql
+select Medication,count() as TotalPrescriptions
+from Prescriptions
+group by Medication
 ```
 
-## Output:
+**Output:**
 
-<img width="875" height="425" alt="image" src="https://github.com/user-attachments/assets/456a7ed9-5602-42df-b391-c0e389293913" />
+![{999353BE-84CC-4020-BA6E-EA016385FAF6}](https://github.com/user-attachments/assets/a9545fb8-8dd7-4b00-9f35-236d1a2adb83)
 
+**Question 2**
+---
+![{5DD58B65-315D-4DB4-9109-81AA63EF2CB5}](https://github.com/user-attachments/assets/f2e6a7c7-f85d-4cad-8db9-f13bb3f92bf0)
 
-## Question 3:
-
-Find the total salary of all staff members.
-
-```
-SELECT SUM(salary) AS total_salary
-FROM staff;
-
+```sql
+select DoctorID,count() as TotalPrescriptions from Prescriptions
+group by DoctorID
 ```
 
-## Output:
+**Output:**
 
-<img width="898" height="355" alt="image" src="https://github.com/user-attachments/assets/0ce9b96e-9cb2-43ca-bc5f-97fa01fbb033" />
+![{FA459BF6-05A7-4193-B80E-813A17BC37A8}](https://github.com/user-attachments/assets/7d84fcff-941e-4f70-ac37-b186554589bb)
+
+**Question 3**
+![{EEB04734-2C71-471A-9B3A-1E816F522C47}](https://github.com/user-attachments/assets/33560868-4663-4285-9fed-26ed73683330)
 
 
-## Question 4:
-
-Find the average salary of all staff members.
-
+```sql
+SELECT PatientID,COUNT() as TotalRecords
+from MedicalRecords
+group by PatientID
 ```
-SELECT AVG(salary) AS average_salary
-FROM staff;
-```
 
-## Output:
+**Output:**
 
-<img width="762" height="412" alt="image" src="https://github.com/user-attachments/assets/5aa14133-4491-4cd0-b5a2-a543b90875a1" />
+![{7DA39C03-67A4-4D6A-9E1E-12033232E3BC}](https://github.com/user-attachments/assets/2fb7982d-47a5-4d32-bfa6-d26eead47073)
 
-## Question 5:
 
-Find the total number of staff members.
+**Question 4**
+---
+![{0BF1E2DC-751E-46A5-A5E1-281EB2B62289}](https://github.com/user-attachments/assets/bfb51534-6964-4a2d-9e00-bd8e563ca133)
 
-```
-SELECT COUNT(*) AS total_staff
-FROM staff;
+
+```sql
+select name,length(name) as length from customer
+ORDER BY LENGTH(name) DESC
+LIMIT 1
 
 ```
 
-## Output:
+**Output:**
 
-<img width="852" height="402" alt="image" src="https://github.com/user-attachments/assets/9ca0af21-c454-44e5-9f13-a04825daa986" />
-
-
-## Question 6:
-
-Find the number of staff members in each department.
+![{F55D891C-13BC-4A19-918A-E7FC1198BD84}](https://github.com/user-attachments/assets/b3736946-5409-4b97-84cc-6214c8bb1fe0)
 
 
-```
-SELECT department, COUNT(*) AS staff_count
-FROM staff
-GROUP BY department;
+**Question 5**
+---
+![{48B19B28-4975-4601-8A17-4807F6A71D73}](https://github.com/user-attachments/assets/35da9886-25a1-45fa-bfec-b26a0372443a)
 
+
+```sql
+select sum(income) as 'total_income' from employee
+where age>=40
 ```
 
-## Output:
+**Output:**
 
-<img width="842" height="391" alt="image" src="https://github.com/user-attachments/assets/ee1992b0-f966-4f74-a4fd-4ae80f23802e" />
+![{EED6A9DE-B6A8-4AA1-88CD-D0AEE424A1DD}](https://github.com/user-attachments/assets/34d7f6ee-bd6c-4ab6-a2a3-edb6da5e6650)
 
-## Question 7:
 
-Find the total salary paid in each department.
+**Question 6**
+![{535B9A25-A992-44B8-95A1-48F871E0F127}](https://github.com/user-attachments/assets/53db6d45-1bbf-42dd-850b-4478873ca6e6)
 
-```
-SELECT department, SUM(salary) AS total_salary
-FROM staff
-GROUP BY department;
 
+```sql
+select COUNT(DISTINCT(salesman_id)) as 'COUNT' FROM orders
 ```
 
-## Output:
+**Output:**
 
-<img width="882" height="393" alt="image" src="https://github.com/user-attachments/assets/750b4716-9719-43e9-bff4-abf92476b336" />
+![{8ED24307-016F-4CC2-9274-C52518ECF991}](https://github.com/user-attachments/assets/8b4327ed-507b-4622-b661-7caae5f14a81)
 
 
-## Question 8:
+**Question 7**
+---
+![{024D2596-7B12-4155-8102-0B19E8C148DB}](https://github.com/user-attachments/assets/471c2ed3-115c-48d1-935b-f50eba65198f)
 
-Find the average salary in each department.
 
-```
-SELECT department, AVG(salary) AS average_salary
-FROM staff
-GROUP BY department;
-
+```sql
+select max(age) - min(age) as 'age_difference' from employee
 ```
 
-## Output:
+**Output:**
 
-<img width="901" height="355" alt="image" src="https://github.com/user-attachments/assets/07d340a9-e281-4761-8114-1020b69412e7" />
-
-## Question 9:
-
-Display departments having more than 2 staff members.
-
-```
-SELECT department, COUNT(*) AS staff_count
-FROM staff
-GROUP BY department
-HAVING COUNT(*) > 2;
-```
-
-## Output:
-
-<img width="842" height="367" alt="image" src="https://github.com/user-attachments/assets/8c4e3826-ec03-4e3e-bc8f-5aa77b51e44d" />
+![{75234451-6E7B-4C2E-AFBC-F01C4C92B866}](https://github.com/user-attachments/assets/b95f18f6-5b9b-488b-a16d-d166827598e9)
 
 
-## Question 10:
+**Question 8**
+---
+![{C37A31C9-DB3D-46E9-825D-E4E8F6FCEDA9}](https://github.com/user-attachments/assets/816d8f02-fa5a-4a13-931d-9bf45c9dd957)
 
-Display departments whose total salary is greater than 150000.
 
-```
-SELECT department, SUM(salary) AS total_salary
-FROM staff
-GROUP BY department
-HAVING SUM(salary) > 150000;
-
+```sql
+select category_id, sum(price*category_id) as 'Revenue' from products
+group by category_id
+having Revenue > 25
 ```
 
-## Output:
+**Output:**
 
-<img width="906" height="347" alt="image" src="https://github.com/user-attachments/assets/e43a4f1b-8953-4211-80cb-e7e000b1d200" />
+![{1D0D9F97-C574-4D3E-AD9F-95210D4C3012}](https://github.com/user-attachments/assets/612cce80-0dc2-4e6a-9c99-f245bcbd8f37)
 
+
+**Question 9**
+---
+![{640C8FAD-AE6D-49F8-B061-9A87510D067D}](https://github.com/user-attachments/assets/71d9668a-276a-4a4f-8639-7d8ce5b2c4d6)
+
+
+```sql
+select PatientID,COUNT(*) AS 'TotalRecords' from MedicalRecords
+group by PatientID
+HAVING TotalRecords > 3
+```
+
+**Output:**
+
+![{36CB33B5-20BC-4B47-A97C-4BAA5319C36B}](https://github.com/user-attachments/assets/0186a549-5974-4a8a-9021-ab5a198b4c6a)
+
+
+**Question 10**
+---
+![{6BBD9AC7-4DA6-4C27-8D8D-717B1BFC5E17}](https://github.com/user-attachments/assets/c2205938-7bba-43c0-9de7-dbed18de9ab8)
+
+
+```sql
+select category_id,count(*) as COUNT FROM products
+group by category_id
+having category_id>2
+```
+
+**Output:**
+
+![{20F7198D-1790-4B85-9D27-C42AE4475B11}](https://github.com/user-attachments/assets/8044026c-f4db-43ce-977e-b3d0b7e35172)
+
+
+
+## RESULT
+Thus, the SQL queries to implement aggregate functions, GROUP BY, and HAVING clause have been executed successfully.
 
 
 ## RESULT
